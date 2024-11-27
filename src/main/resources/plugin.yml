@@ -1,0 +1,13 @@
+name: RTPPlugin
+version: '1.0-SNAPSHOT'
+main: me.ItxItay.RTPPlugin.RTPPlugin
+api-version: '1.21'
+load: STARTUP
+commands:
+  rtp:
+    description: "rtp command"
+  givertp:
+    description: "give rtp card"
+permissions:
+  RTP.CoolDown.bypass:
+    description: "Bypass the command cooldown"

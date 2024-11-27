@@ -1,0 +1,116 @@
+
+#      ██████╗░████████╗██████╗░
+#      ██╔══██╗╚══██╔══╝██╔══██╗
+#      ██████╔╝░░░██║░░░██████╔╝
+#      ██╔══██╗░░░██║░░░██╔═══╝░
+#      ██║░░██║░░░██║░░░██║░░░░░
+#      ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░ plugin
+#
+#       by ItxItay
+#       github: https://github.com/ItxItay
+#
+RTP:
+  # CoolDown for the Command RTP:
+  cooldown: 60 # in minutes
+  # Worlds for Spawn and the survival world:
+  worlds:
+    spawn: world_nether # Spawn's world.
+    rtp: world # Survival's world.
+  messages:
+    not_in_spawn_world: "&cYou have to be in the spawn!"
+    you_dont_have_permission: "&cYou don't have permission to that!"
+    cooldown_left: "&cTime left: &e{TIME}"
+  MenuSettings:
+    title: "choose a range"
+    size: 27
+  RTPSettings:
+    level-1:
+      range: "100,1000"
+      permission: RTP.permission.level-1
+      menu:
+        material: LIME_CONCRETE
+        custommodeldata: 0
+        slot: 9
+        name: "LEVEL 1"
+        lore:
+          - "Line"
+          - "Line"
+      oneTimeCard:
+        material: PAPER
+        custommodeldata: 0
+        name: "LEVEL 1"
+        lore:
+          - "Line"
+          - "Line"
+    level-2:
+      range: "100,2000"
+      permission: RTP.permission.level-2
+      menu:
+        material: GREEN_CONCRETE
+        custommodeldata: 0
+        slot: 11
+        name: "LEVEL 2"
+        lore:
+          - "Line"
+          - "Line"
+      oneTimeCard:
+        material: PAPER
+        custommodeldata: 0
+        name: "LEVEL 2"
+        lore:
+          - "Line"
+          - "Line"
+    level-3:
+      range: "100,3500"
+      permission: RTP.permission.level-3
+      menu:
+        material: YELLOW_CONCRETE
+        custommodeldata: 0
+        slot: 13
+        name: "LEVEL 3"
+        lore:
+          - "Line"
+          - "Line"
+      oneTimeCard:
+        material: PAPER
+        custommodeldata: 0
+        name: "LEVEL 3"
+        lore:
+          - "Line"
+          - "Line"
+    level-4:
+      range: "100,5000"
+      permission: RTP.permission.level-4
+      menu:
+        material: ORANGE_CONCRETE
+        custommodeldata: 0
+        slot: 15
+        name: "LEVEL 4"
+        lore:
+          - "Line"
+          - "Line"
+      oneTimeCard:
+        material: PAPER
+        custommodeldata: 0
+        name: "LEVEL 4"
+        lore:
+          - "Line"
+          - "Line"
+    level-5:
+      range: "100,7000"
+      permission: RTP.permission.level-5
+      menu:
+        material: RED_CONCRETE
+        custommodeldata: 0
+        slot: 17
+        name: "LEVEL 5"
+        lore:
+          - "Line"
+          - "Line"
+      oneTimeCard:
+        material: PAPER
+        custommodeldata: 0
+        name: "LEVEL 5"
+        lore:
+          - "Line"
+          - "Line"
