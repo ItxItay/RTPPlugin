@@ -17,4 +17,4 @@
 - `rtp.permission.{radius level}` - Permission to a radius.
 - `RTP.command.givertp` - Permission to give one time card.
 
-Feel free to contact me  <br> ![](https://dcbadge.limes.pink/api/shield/844200691035537460) 
+Feel free to contact me  <br> [![](https://dcbadge.limes.pink/api/shield/844200691035537460)](https://discordapp.com/users/844200691035537460)
