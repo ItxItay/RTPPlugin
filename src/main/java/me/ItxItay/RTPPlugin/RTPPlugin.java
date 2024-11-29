@@ -16,14 +16,26 @@ import java.util.logging.Logger;
 
 public final class RTPPlugin extends JavaPlugin {
 
-    FileConfiguration config = this.getConfig();
     Logger logger = getLogger();
     private static RTPPlugin plugin;
+
+    private static ConfigurationSection settings;
+    private static Set<String> levelsList = new HashSet<>();/* = settings.getKeys(false);*/
 
     @Override
     public void onEnable() {
         RTPPlugin.plugin = this;
 
+        saveDefaultConfig();
+        reloadConfig();
+        registerPermissions();
+
+        try{
+            RTPPlugin.settings = this.getConfig().getConfigurationSection("RTP.RTPSettings");
+        } catch (Exception e){
+            throw e;
+        }
+        RTPPlugin.levelsList = settings.getKeys(false);
 
         logger.info("Programmed by ItxItay!");
         this.getCommand("rtp").setExecutor(new RTPCommand());
@@ -31,10 +43,6 @@ public final class RTPPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ClickEventInventory(), this);
         getServer().getPluginManager().registerEvents(new ClickEventItem(), this);
 
-        registerPermissions();
-
-        saveDefaultConfig();
-        reloadConfig();
     }
     @Override
     public void onDisable(){
@@ -50,23 +58,19 @@ public final class RTPPlugin extends JavaPlugin {
     /***/
 
     public void registerPermissions(){
-        ConfigurationSection settings =  config.getConfigurationSection("RTP.RTPSettings");
-        Set<String> LEVELSList = settings.getKeys(false);
-
-        for (String key : LEVELSList){
+        for (String key : levelsList){
             Permission perm = new Permission("rtp.permission." + key);
             this.getServer().getPluginManager().addPermission(perm);
         }
     }
 
     public void unRegisterPermissions(){
-        ConfigurationSection settings =  config.getConfigurationSection("RTP.RTPSettings");
-        Set<String> LEVELSList = settings.getKeys(false);
-
-        for (String key : LEVELSList){
+        for (String key : levelsList){
             this.getServer().getPluginManager().removePermission("rtp.permission." + key);
         }
     }
 
     public static RTPPlugin getPlugin() {return plugin;}
+    public static ConfigurationSection getSettings() {return settings;}
+    public static Set<String> getLevelsList() {return levelsList;}
 }

@@ -11,14 +11,15 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
-import java.util.Set;
 
 public class RTPInventory {
 
     public final FileConfiguration config = RTPPlugin.getPlugin().getConfig();
+    private ConfigurationSection settings =  RTPPlugin.getSettings();
+
 
     public void openRTPInventory(Player player){
-        String menuTitle = config.getString("RTP.MenuSettings.title");
+        String menuTitle = config.getString("RTP.MenuSettings.title", "def");
         int menuSize = config.getInt("RTP.MenuSettings.size", 27);
 
         Inventory inventory = Bukkit.createInventory(null, menuSize, menuTitle);
@@ -28,10 +29,8 @@ public class RTPInventory {
     }
 
     public Inventory RTPlevels(Inventory inv){
-        ConfigurationSection settings =  config.getConfigurationSection("RTP.RTPSettings");
-        Set<String> LEVELSList = settings.getKeys(false);
 
-        for (String LEVELSListString : LEVELSList){
+        for (String LEVELSListString : RTPPlugin.getLevelsList()){
             Material material =  Material.valueOf(settings.getString(LEVELSListString + ".menu.material"));
             int slot = settings.getInt(LEVELSListString + ".menu.slot");
             String name = settings.getString(LEVELSListString + ".menu.name");
@@ -40,6 +39,8 @@ public class RTPInventory {
             ItemStack LevelItem = ItemStackBuilder.ItemNullabe(material, name, CustomModelData, lore, LEVELSListString, 1);
             inv.setItem(slot, LevelItem);
         }
+
+
         return inv;
     }
 

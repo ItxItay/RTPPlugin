@@ -26,12 +26,10 @@ public class ClickEventItem implements Listener {
         Player player = event.getPlayer();
         if (event.getItem() == null) return;
 
-        ConfigurationSection settings =  config.getConfigurationSection("RTP.RTPSettings");
-        Set<String> LEVELSList = settings.getKeys(false);
-
+        if (!event.getItem().getItemMeta().getPersistentDataContainer().has(NameSpacedKey.levelKey , PersistentDataType.STRING)) return;
         String PersistentDataContainer = event.getItem().getItemMeta().getPersistentDataContainer().get(NameSpacedKey.levelKey, PersistentDataType.STRING);
 
-        if (!LEVELSList.contains(PersistentDataContainer))return;
+        if (!RTPPlugin.getLevelsList().contains(PersistentDataContainer))return;
         if (player.getWorld() != Bukkit.getWorld(config.getString("RTP.worlds.spawn"))) {
             String invalidworld = config.getString("RTP.messages.not_in_spawn_world");
             player.sendMessage(ChatColor.translateAlternateColorCodes('&', invalidworld));

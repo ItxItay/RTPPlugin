@@ -43,10 +43,7 @@ public class giveRTPCommand implements CommandExecutor {
             return false;
         }
 
-        ConfigurationSection settings =  config.getConfigurationSection("RTP.RTPSettings");
-        Set<String> LEVELSList = settings.getKeys(false);
-
-        if (!LEVELSList.contains(level)){
+        if (!RTPPlugin.getLevelsList().contains(level)){
             sender.sendMessage("§cRange not found!");
             return false;
         }
